@@ -21,29 +21,23 @@ services:
         - RABBITMQ_DEFAULT_USER=root  
         - RABBITMQ_DEFAULT_PASS=admin
         - RABBITMQ_PID_FILE=/var/lib/rabbitmq/mnesia/rabbitmq
-        # - RABBITMQ_USER=user
-         #--hostname my-rabbit
     ports:
-        # AMQP protocol port
         - '5672:5672'
-        # HTTP management UI
         - '15672:15672'
     # volumes:
     #  - './rabbit_backup:/var/lib/rabbitmq/mnesia'
   redis:
     image: docker.io/bitnami/redis:6.2
     environment:
-      # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
-      #- REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
       - REDIS_AOF_ENABLED=no
     ports:
       - '6379:6379'
-    # network_mode: host
     
-    # volumes:
-    #   - './redis_backup:/bitnami/redis/data'
-    #   - './redis-data:/bitnami/redis/data'
+    volumes:
+      - './redis_backup:/bitnami/redis/data'
+      - './redis-data:/bitnami/redis/data'
 
 
   app:
