@@ -41,7 +41,9 @@ services:
 
 
   app:
-    image: appdeneme:latest
+    build: 
+      context: ../app/
+      dockerfile: dockerfile
     restart: always
     container_name: app
     network_mode: host
