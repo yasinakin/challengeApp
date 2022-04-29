@@ -44,3 +44,11 @@ echo "3"
 sudo chmod +x /usr/local/bin/docker-compose
 echo "4"
 docker-compose version
+
+
+if cd challengeApp; then git pull; else git clone -b master https://github.com/yasinakin/challengeApp.git && cd challengeApp ; fi
+pwd
+echo "4"
+
+sudo docker-compose -f docker/docker-compose.yml up -d
+
