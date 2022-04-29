@@ -1,8 +1,8 @@
 # challengeApp
 ## Requirements
-virtualbox and vagrant
-sudo apt install virtualbox
-sudo apt-get install vagrant
+#virtualbox and vagrant
+#sudo apt install virtualbox
+#sudo apt-get install vagrant
 
 ## Run in vagrant-jenkins directory
 1. vagrant init 
