@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    parameters {
+        choice(name: "SERVICE_NAME", choices: ["", "redis"], description: "Choose Environment")        
+    }
+
+    stages {
+        stage('Set Environment') {
+            steps {
+                script {
+                    ENVIRONMENT = "${params.SERVICE_NAME}"
+                }
+            }
+        }
+        stage('Clone App Repo') {
+            steps {
+                sh "git clone -b master https://github.com/yasinakin/somePractice.git"
+                sh "cd somePractice"
+                sh "ls"
+                echo "${ENVIRONMENT}"
+            }
+        }
+    } 
+}
